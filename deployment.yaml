@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: complete-production-e2e-app
-        image: jinjia/complete-prodcution-e2e-pipeline:1.0.0-6
+        image: jinjia/complete-production-e2e-pipeline:1.0.0-6
         resources:
           limits:
             cpu: "500m"
