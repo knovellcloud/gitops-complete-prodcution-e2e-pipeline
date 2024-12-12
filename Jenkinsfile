@@ -37,9 +37,10 @@ pipeline {
                     git add deployment.yaml
                     git commit -m "Update the deployment manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/knovellcloud/gitops-complete-prodcution-e2e-pipeline main"
-                } 
+                withCredentials([gitUsernamePassword(credentialsId: 'github-pat',
+                 gitToolName: 'Default')]) {
+                    sh "git push https://github.com/knovellcloud/gitops-complete-prodcution-e2e-pipeline origin main"
+                }
             }
         }
     }
