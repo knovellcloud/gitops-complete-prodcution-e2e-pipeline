@@ -2,6 +2,9 @@ pipeline {
     agent {
         label "jenkins-agent"
     }
+    tools {
+        git "Default"
+    }
     environment {
         APP_NAME = "complete-production-e2e-pipeline"
     }
