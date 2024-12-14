@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: complete-production-e2e-pipeline
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/knovellcloud/gitops-complete-prodcution-e2e-pipeline
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: https://app.dev.jsisu.com:6443
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

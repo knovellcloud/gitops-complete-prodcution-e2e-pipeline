@@ -25,9 +25,9 @@ pipeline {
         stage("Update the Development Tags") {
             steps {
                 sh """
-                    cat deployment.yaml
-                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
-                    cat deployment.yaml
+                    cat dev/deployment.yaml
+                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' dev/deployment.yaml
+                    cat dev/deployment.yaml
                 """
             }
         }
@@ -37,7 +37,7 @@ pipeline {
                 sh """
                     git config --global user.name "knovellcloud"
                     git config --global user.email "isjinjia.zhang@gmail.com"
-                    git add deployment.yaml
+                    git add dev/deployment.yaml
                     git commit -m "Update the deployment manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github-pat',
